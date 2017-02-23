@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
 import pyglet
-import pyglet.media.procedural
 from pyglet.media.procedural import Sine
 from pyglet.window import key
 from src.config import CTRL_CMD
 
-class Sound (pyglet.media.procedural.Sine):
+class Sound (Sine):
     def replay(self):
         self.seek(0)
         return self.play()
@@ -27,8 +26,6 @@ sprite = pyglet.sprite.Sprite(img=image, x=320, y=240)
 
 sound = Sine(0.1, 830)
 sound.__class__ = Sound
-player = pyglet.media.Player()
-
 
 @window.event
 def on_key_press(symbol, mods):
